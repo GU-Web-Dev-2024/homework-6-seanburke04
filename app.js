@@ -13,44 +13,61 @@ window.onload = function () {
     let $buttonStop = $("#button-stop");
     let $buttonReset = $("#button-reset");
 
-    $buttonStart.onclick = function () {
+    // $buttonStart.onclick = function () {
+    //     clearInterval(interval);
+    //     interval = setInterval(startTimer, 10);
+    // };
+
+    $buttonStart.on("click", function () {
         clearInterval(interval);
         interval = setInterval(startTimer, 10);
-    };
+    });
 
-    $buttonStop.onclick = function () {
-        clearInterval(interval);
-    };
+    // $buttonStop.onclick = function () {
+    //     clearInterval(interval);
+    // };
 
-    $buttonReset.onclick = function () {
+    $buttonStop.on("click", function () {
         clearInterval(interval);
-        tens = "00";
-        seconds = "00";
-        $appendTens.innerHTML = tens;
-        $appendSeconds.innerHTML = seconds;
-    };
+    });
+
+    // $buttonReset.onclick = function () {
+    //     clearInterval(interval);
+    //     tens = "00";
+    //     seconds = "00";
+    //     $appendTens.innerHTML = tens;
+    //     $appendSeconds.innerHTML = seconds;
+    // };
+
+    $buttonReset.on("click", function () {
+        clearInterval(interval);
+        tens = 0;
+        seconds = 0;
+        $appendTens.html(tens);
+        $appendSeconds.html(seconds);
+    });
 
     function startTimer() {
         tens++;
 
         if (tens < 9) {
-            $appendTens.innerHTML = "0" + tens;
+            $appendTens.html("0" + tens);
         }
 
         if (tens > 9) {
-            $appendTens.innerHTML = tens;
+            $appendTens.html(tens);
         }
 
         if (tens > 99) {
             console.log("seconds");
             seconds++;
-            $appendSeconds.innerHTML = "0" + seconds;
+            $appendSeconds.html("0" + seconds);
             tens = 0;
-            $appendTens.innerHTML = "0" + 0;
+            $appendTens.html("0" + 0);
         }
 
         if (seconds > 9) {
-            $appendSeconds.innerHTML = seconds;
+            $appendSeconds.html(seconds);
         }
     }
 };
