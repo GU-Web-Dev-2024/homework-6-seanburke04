@@ -7,14 +7,27 @@ $(document).ready(function () {
     let $buttonStart = $("#button-start");
     let $buttonStop = $("#button-stop");
     let $buttonReset = $("#button-reset");
+    let $timer = $("#timer");
+
+    // Add styling
+    $timer.addClass("timer-background");
+    $timer.css({
+        "text-align": "center",
+        width: "50px",
+        "background-color": "gray",
+        padding: "50px",
+        margin: "50px",
+    });
 
     $buttonStart.on("click", function () {
         clearInterval(interval);
         interval = setInterval(startTimer, 10);
+        $timer.css({ "background-color": "rgb(51, 165, 50)" });
     });
 
     $buttonStop.on("click", function () {
         clearInterval(interval);
+        $timer.css({ "background-color": "rgb(251, 18, 47)" });
     });
 
     $buttonReset.on("click", function () {
@@ -23,6 +36,7 @@ $(document).ready(function () {
         seconds = 0;
         $appendTens.html(tens);
         $appendSeconds.html(seconds);
+        $timer.css({ "background-color": "gray" });
     });
 
     function startTimer() {
