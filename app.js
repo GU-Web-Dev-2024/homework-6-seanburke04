@@ -17,6 +17,7 @@ $(document).ready(function () {
         "background-color": "gray",
         padding: "50px",
         margin: "50px",
+        borderRadius: "10px",
     });
 
     $buttonStart.on("click", function () {
@@ -26,8 +27,10 @@ $(document).ready(function () {
     });
 
     $buttonStop.on("click", function () {
-        clearInterval(interval);
-        $timer.css({ "background-color": "rgb(251, 18, 47)" });
+        if (!(tens == 0 && seconds == 0)) {
+            clearInterval(interval);
+            $timer.css({ "background-color": "rgb(251, 18, 47)" });
+        }
     });
 
     $buttonReset.on("click", function () {
