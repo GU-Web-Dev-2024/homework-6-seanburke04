@@ -20,6 +20,27 @@ $(document).ready(function () {
         borderRadius: "10px",
     });
 
+    $buttonStart.addClass("start-button");
+    $buttonStart.css({
+        "background-color": "white",
+        borderRadius: "50%",
+        border: "2px solid rgb(51, 165, 50)",
+    });
+
+    $buttonStop.addClass("stop-button");
+    $buttonStop.css({
+        "background-color": "white",
+        borderRadius: "50%",
+        border: "2px solid rgb(251, 18, 47)",
+    });
+
+    $buttonReset.addClass("reset-button");
+    $buttonReset.css({
+        "background-color": "white",
+        borderRadius: "50%",
+        border: "2px solid gray",
+    });
+
     $buttonStart.on("click", function () {
         clearInterval(interval);
         interval = setInterval(startTimer, 10);
