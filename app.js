@@ -1,4 +1,9 @@
-$(document).ready(function () {
+// Name: Sean Burke
+// Class: CPSC 332 Web Development
+// Assignment: Homework 6 - Themed Stopwatch
+// Last Modified: 10/22/2024
+
+$(document).ready(function() {
     var seconds = "00";
     var tens = "00";
     var interval;
@@ -13,10 +18,9 @@ $(document).ready(function () {
     let $title = $("h2");
 
     // Add styling
-    // $title.addClass("title");
     $title.css({
         "text-shadow":
-        "3px 3px 0 white, -3px 3px 0 white, 3px -3px 0 white, -3px -3px 0 white",
+            "3px 3px 0 white, -3px 3px 0 white, 3px -3px 0 white, -3px -3px 0 white",
     });
 
     $mainDiv.addClass("main-div");
@@ -62,20 +66,20 @@ $(document).ready(function () {
         "margin-top": "10px",
     });
 
-    $buttonStart.on("click", function () {
+    $buttonStart.on("click", function() {
         clearInterval(interval);
         interval = setInterval(startTimer, 10);
         $timer.css({ "background-color": "rgb(51, 165, 50)" });
     });
 
-    $buttonStop.on("click", function () {
+    $buttonStop.on("click", function() {
         if (!(tens == 0 && seconds == 0)) {
             clearInterval(interval);
             $timer.css({ "background-color": "rgb(251, 18, 47)" });
         }
     });
 
-    $buttonReset.on("click", function () {
+    $buttonReset.on("click", function() {
         clearInterval(interval);
         tens = 0;
         seconds = 0;
