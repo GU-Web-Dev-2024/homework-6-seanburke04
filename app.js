@@ -2,6 +2,7 @@ $(document).ready(function () {
     var seconds = "00";
     var tens = "00";
     var interval;
+    let backgroundUrl = "./images/background-image.jpg";
     let $appendTens = $("#tens");
     let $appendSeconds = $("#seconds");
     let $buttonStart = $("#button-start");
@@ -9,14 +10,22 @@ $(document).ready(function () {
     let $buttonReset = $("#button-reset");
     let $timer = $("#timer");
     let $mainDiv = $("#wrapper");
+    let $title = $("h2");
 
     // Add styling
+    // $title.addClass("title");
+    $title.css({
+        "text-shadow":
+        "3px 3px 0 white, -3px 3px 0 white, 3px -3px 0 white, -3px -3px 0 white",
+    });
+
     $mainDiv.addClass("main-div");
     $mainDiv.css({
         margin: "auto",
         width: "50%",
         padding: "10px",
         "text-align": "center",
+        "background-image": "url(" + backgroundUrl + ")",
     });
 
     $timer.addClass("timer-background");
