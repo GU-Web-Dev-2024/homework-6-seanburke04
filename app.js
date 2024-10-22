@@ -8,15 +8,24 @@ $(document).ready(function () {
     let $buttonStop = $("#button-stop");
     let $buttonReset = $("#button-reset");
     let $timer = $("#timer");
+    let $mainDiv = $("#wrapper");
 
     // Add styling
+    $mainDiv.addClass("main-div");
+    $mainDiv.css({
+        margin: "auto",
+        width: "50%",
+        padding: "10px",
+        "text-align": "center",
+    });
+
     $timer.addClass("timer-background");
     $timer.css({
         "text-align": "center",
-        width: "50px",
+        width: "50%",
         "background-color": "gray",
-        padding: "50px",
-        margin: "50px",
+        padding: "10px",
+        margin: "auto",
         borderRadius: "10px",
     });
 
@@ -25,6 +34,7 @@ $(document).ready(function () {
         "background-color": "white",
         borderRadius: "50%",
         border: "2px solid rgb(51, 165, 50)",
+        "margin-top": "10px",
     });
 
     $buttonStop.addClass("stop-button");
@@ -32,6 +42,7 @@ $(document).ready(function () {
         "background-color": "white",
         borderRadius: "50%",
         border: "2px solid rgb(251, 18, 47)",
+        "margin-top": "10px",
     });
 
     $buttonReset.addClass("reset-button");
@@ -39,6 +50,7 @@ $(document).ready(function () {
         "background-color": "white",
         borderRadius: "50%",
         border: "2px solid gray",
+        "margin-top": "10px",
     });
 
     $buttonStart.on("click", function () {
