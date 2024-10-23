@@ -3,7 +3,7 @@
 // Assignment: Homework 6 - Themed Stopwatch
 // Last Modified: 10/22/2024
 
-$(document).ready(function() {
+$(document).ready(function () {
     var seconds = "00";
     var tens = "00";
     var interval;
@@ -66,26 +66,33 @@ $(document).ready(function() {
         "margin-top": "10px",
     });
 
-    $buttonStart.on("click", function() {
+    // Add button functionality
+    $buttonStart.on("click", function () {
         clearInterval(interval);
         interval = setInterval(startTimer, 10);
-        $timer.css({ "background-color": "rgb(51, 165, 50)" });
+        $timer.css({
+            "background-color": "rgb(51, 165, 50)",
+            "opacity": "0.8",
+        });
+        animateTimer();
     });
 
-    $buttonStop.on("click", function() {
+    $buttonStop.on("click", function () {
         if (!(tens == 0 && seconds == 0)) {
             clearInterval(interval);
             $timer.css({ "background-color": "rgb(251, 18, 47)" });
+            $timer.stop(true);
         }
     });
 
-    $buttonReset.on("click", function() {
+    $buttonReset.on("click", function () {
         clearInterval(interval);
         tens = 0;
         seconds = 0;
         $appendTens.html(tens);
         $appendSeconds.html(seconds);
         $timer.css({ "background-color": "gray" });
+        $timer.stop(true).css({ "opacity": "1.0" });
     });
 
     function startTimer() {
@@ -100,7 +107,6 @@ $(document).ready(function() {
         }
 
         if (tens > 99) {
-            console.log("seconds");
             seconds++;
             $appendSeconds.html("0" + seconds);
             tens = 0;
@@ -110,5 +116,17 @@ $(document).ready(function() {
         if (seconds > 9) {
             $appendSeconds.html(seconds);
         }
+    }
+
+    function animateTimer() {
+        $timer.animate({ "opacity": "1.0" }, 500).animate(
+            { "opacity": "0.8" },
+            500,
+            function () {
+                if (interval) {
+                    animateTimer();
+                }
+            },
+        );
     }
 });
