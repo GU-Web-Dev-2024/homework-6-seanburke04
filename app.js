@@ -1,7 +1,7 @@
 // Name: Sean Burke
 // Class: CPSC 332 Web Development
 // Assignment: Homework 6 - Themed Stopwatch
-// Last Modified: 10/22/2024
+// Last Modified: 10/23/2024
 
 $(document).ready(function () {
     var seconds = "00";
@@ -40,6 +40,8 @@ $(document).ready(function () {
         padding: "10px",
         margin: "auto",
         borderRadius: "10px",
+        "border-style": "solid",
+        "border-color": "orange",
     });
 
     $buttonStart.addClass("start-button");
@@ -120,9 +122,7 @@ $(document).ready(function () {
 
     function animateTimer() {
         $timer.animate({ "opacity": "1.0" }, 500).animate(
-            { "opacity": "0.8" },
-            500,
-            function () {
+            { "opacity": "0.8" }, 500, function () {
                 if (interval) {
                     animateTimer();
                 }
